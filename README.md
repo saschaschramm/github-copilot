@@ -137,7 +137,7 @@ After sending the request, the endpoint returns the following response:
 }
 ```
 ### Telemetry
-The Github Copilot Extension sends the following telemetry data to the endpoint `https://dc.services.visualstudio.com`:
+The Github Copilot extension sends the following telemetry data to the endpoint `https://dc.services.visualstudio.com`:
 ```Json
 {
     "properties": {
@@ -220,3 +220,6 @@ We have evaluate the copilot model `cushman-ml` with the [HumanEval](https://git
 | code-cushman-001 | 32.93 | 2022-10-23 | https://openai.com/api/
 | code-davinci-002 | 46.95 | 2022-10-23 | https://openai.com/api/
 | cushman-ml | 55.49 | 2022-10-23 | Copilot
+
+
+Result file of the evaluation: [2022-10-23-samples-cushman-ml.jsonl](2022-10-23-samples-cushman-ml.jsonl)
