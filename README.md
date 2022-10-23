@@ -213,7 +213,7 @@ The Github Copilot extension sends the following telemetry data to the endpoint 
 }
 ```
 ### Results
-We have evaluate the copilot model `cushman-ml` with the [HumanEval](https://github.com/openai/human-eval) dataset. Out of 164 programming problems, the model can solve `55.49%`.
+We have evaluate the copilot model `cushman-ml` with the [HumanEval](https://github.com/openai/human-eval) dataset. Out of 164 programming problems, the model can solve `56.10%`.
 
 | Model name | Pass@1 | Date | Comment
 | - | - | - | - |
