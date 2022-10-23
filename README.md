@@ -222,4 +222,4 @@ We have evaluate the copilot model `cushman-ml` with the [HumanEval](https://git
 | cushman-ml | 55.49 | 2022-10-23 | Copilot
 
 
-Result file of the evaluation: [2022-10-23-samples-cushman-ml.jsonl](2022-10-23-samples-cushman-ml.jsonl)
+Completions of the evaluation run: [2022-10-23-samples-cushman-ml.jsonl](2022-10-23-samples-cushman-ml.jsonl)
