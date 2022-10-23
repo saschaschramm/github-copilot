@@ -219,7 +219,7 @@ We have evaluate the copilot model `cushman-ml` with the [HumanEval](https://git
 | - | - | - | - |
 | code-cushman-001 | 32.93 | 2022-10-23 | https://openai.com/api/
 | code-davinci-002 | 46.95 | 2022-10-23 | https://openai.com/api/
-| cushman-ml | 55.49 | 2022-10-23 | Copilot
+| cushman-ml | 56.10 | 2022-10-23 | Copilot
 
 
 Completions of the evaluation run: [2022-10-23-samples-cushman-ml.jsonl](2022-10-23-samples-cushman-ml.jsonl)
