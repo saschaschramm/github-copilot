@@ -212,6 +212,10 @@ The Github Copilot extension sends the following telemetry data to the endpoint 
     }
 }
 ```
+
+### Fill in the middle
+Copilot will likely support [Fill in the Middle](https://arxiv.org/pdf/2207.14255.pdf) in the future. Currently the parameter `isFimEnabled` is set to `false`. Activating `Fill in the Middle` would result in not only the prefix but also the suffix being transmitted to the model.
+
 ### Results
 We have evaluated the copilot model `cushman-ml` with the [HumanEval](https://github.com/openai/human-eval) dataset. Out of 164 programming problems, the model can solve `56.10%`.
 
