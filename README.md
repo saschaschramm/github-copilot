@@ -213,10 +213,154 @@ The Github Copilot extension sends the following telemetry data to the endpoint 
 }
 ```
 
+## Deeper Analysis
+
 ### Fill in the middle
 Copilot will likely support [Fill in the Middle](https://arxiv.org/pdf/2207.14255.pdf) in the future. Currently the parameter `isFimEnabled` is set to `false`. Activating `Fill in the Middle` would result in not only the prefix but also the suffix being transmitted to the model.
 
-### Results
+### Min prompt chars
+The length of the prompt has to be >= 10 characters before the prompt is sent to the model.
+
+``` Javascript
+if ((_ > 0 ? n.length : d) < t.MIN_PROMPT_CHARS)
+    return t._contextTooShort;
+```
+
+### File information
+The following information is collected about the file being edited:
+``` Javascript
+const m = {
+    uri: d.toString(), // The absolute path of the file
+    source: t, // Content of the file
+    offset: n, // The offset of the cursor
+    relativePath: u, // The relative path of the file
+    languageId: p // The programming language of the file
+}
+```
+
+### Extract prompt
+The input of the function `extractPrompt` is the following object:
+``` Javascript
+{
+    "uri": {
+        "$mid": 1,
+        "fsPath": "/Users/XXX/file2.py",
+        "external": "file:///Users/XXX/file2.py",
+        "path": "/Users/XXX/file2.py",
+        "scheme": "file"
+    },
+    "fileName": "/Users/XXX/file2.py",
+    "isUntitled": false,
+    "languageId": "python",
+    "version": 7,
+    "isClosed": false,
+    "isDirty": true,
+    "eol": 1,
+    "lineCount": 2
+}
+```
+
+The extensions remembers the files that have been accessed before. The files are sorted by access time:
+``` Javascript
+o = (0, i.sortByAccessTimes)(e.get(a.TextDocumentManager).textDocuments);
+```
+
+``` Javascript
+o = [
+    {
+        "uri": {
+            "$mid": 1,
+            "fsPath": "/Users/XXX/file2.py",
+            "external": "file:///Users/XXX/file2.py",
+            "path": "/Users/XXX/file2.py",
+            "scheme": "file"
+        },
+        "fileName": "/Users/XXX/file2.py",
+        "isUntitled": false,
+        "languageId": "python",
+        "version": 6,
+        "isClosed": false,
+        "isDirty": true,
+        "eol": 1,
+        "lineCount": 1
+    },
+    {
+        "uri": {
+            "$mid": 1,
+            "fsPath": "/Users/XXX/file1.py",
+            "external": "file:///Users/XXX/file1.py",
+            "path": "/Users/XXX/file1.py",
+            "scheme": "file"
+        },
+        "fileName": "/Users/XXX/file1.py",
+        "isUntitled": false,
+        "languageId": "python",
+        "version": 1,
+        "isClosed": false,
+        "isDirty": false,
+        "eol": 1,
+        "lineCount": 1
+    }
+```
+
+If there are more than 20 files or when the content of all files has a length > 200,000 then the rest of the files are ignored.
+``` Javascript
+if (r.length + 1 > 20 || s + i.getText().length > 2e5)
+    break;
+```
+
+The above object is reduced to the following properties:
+``` Javascript
+[
+    {
+        "uri": "file:///Users/XXX/copilot/file1.py",
+        "relativePath": "file1.py",
+        "languageId": "python",
+        "source": "# Print hello, world"
+    }
+]
+```
+
+The output of the function `extractPrompt` is
+``` Javascript
+{
+    "type": "prompt",
+    "prompt": {
+        "prefix": "# Path: file2.py\n# Compare this snippet from file1.py:\n# # Print hello, world\n# Print he",
+        "suffix": "",
+        "isFimEnabled": false,
+        "promptElementRanges": [
+            {
+                "kind": "PathMarker",
+                "start": 0,
+                "end": 17
+            },
+            {
+                "kind": "SimilarFile",
+                "start": 17,
+                "end": 78
+            },
+            {
+                "kind": "BeforeCursor",
+                "start": 78,
+                "end": 88
+            }
+        ]
+    },
+    "trailingWs": "",
+    "promptChoices": {
+        "used": {},
+        "unused": {}
+    },
+    "computeTimeMs": 6,
+    "promptBackground": {
+        "used": {},
+        "unused": {}
+    }
+}
+```
+
+## Copilot Performance
 We have evaluated the copilot model `cushman-ml` with the [HumanEval](https://github.com/openai/human-eval) dataset. Out of 164 programming problems, the model can solve `56.10%`.
 
 | Model name | Pass@1 | Date | Comment
