@@ -16,7 +16,7 @@ We start with the simplest case with only one file.
 * file content: `# Print hello world`
 
 In this case, the extension generates the following prompt:
-```
+``` Python
 # Path: file1.py
 # Print hello, world
 ```
@@ -31,8 +31,8 @@ Now let's consider a slightly more complex two-file case.
 * filename: `file2.py`
 * file content: `# Print he`
 
-Prompt
-```
+In this case, the extension generates the following prompt:
+``` Python
 # Path: file2.py
 # Compare this snippet from file1.py:
 # # Print hello, world
@@ -83,7 +83,16 @@ The extension contains a function `fetchWithParameters`. The following object is
 }
 ```
 
-To generate a completion, the extension sends a POST request to the endpoint `https://copilot-proxy.githubusercontent.com/v1/engines/copilot-codex/completions`. The payload is derived from the above object:
+To generate a completion, the extension sends a POST request
+``` Javascript
+const m = {
+    method: "POST",
+    headers: h,
+    json: l,
+    timeout: 3e4
+}
+```
+to the endpoint `https://copilot-proxy.githubusercontent.com/v1/engines/copilot-codex/completions`. The payload is derived from the above object:
 ``` Json
 {
     "prompt": "# Path: file2.py\n# Compare this snippet from file1.py:\n# # Print hello, world\n# Print he",
@@ -105,8 +114,13 @@ To generate a completion, the extension sends a POST request to the endpoint `ht
 ```
 
 After sending the request, the endpoint returns the following response:
+
+```Javascript
+const p = a.slice("data:".length).trim();
+```
+
 ```Json
-{
+p = {
     "id": "XXX",
     "model": "cushman-ml",
     "created": 123,
@@ -138,6 +152,12 @@ After sending the request, the endpoint returns the following response:
 ```
 ### Telemetry
 The Github Copilot extension sends the following telemetry data to the endpoint `https://dc.services.visualstudio.com`:
+
+``` Javascript
+const v = await (0, s.getGhostText)(e, n, a, c.triggerKind === r.InlineCompletionTriggerKind.Invoke, y, h);
+```
+
+
 ```Json
 {
     "properties": {
@@ -365,9 +385,9 @@ We have evaluated the copilot model `cushman-ml` with the [HumanEval](https://gi
 
 | Model name | Pass@1 | Date | Comment
 | - | - | - | - |
-| code-cushman-001 | 32.93 | 2022-10-23 | https://openai.com/api/
-| code-davinci-002 | 46.95 | 2022-10-23 | https://openai.com/api/
-| cushman-ml | 56.10 | 2022-10-23 | Copilot
+| code-cushman-001 | 32.93% | 2022-10-23 | https://openai.com/api/
+| code-davinci-002 | 46.95% | 2022-10-23 | https://openai.com/api/
+| cushman-ml | 56.10% | 2022-10-23 | Copilot
 
 
 Completions of the evaluation run: [2022-10-23-samples-cushman-ml.jsonl](2022-10-23-samples-cushman-ml.jsonl)
