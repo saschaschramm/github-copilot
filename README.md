@@ -10,7 +10,7 @@ Under macOS the `VS Code Extensions` are located in the following directory:
 ## Prompts
 The Github Copilot extension uses two types of prompts.
 ### Prompt 1
-We start with the simplest case with only one file.
+We start with the simplest case with only one file `file1.py`.
 
 * filename: `file1.py`  
 * file content: `# Print hello world`
@@ -23,7 +23,7 @@ In this case, the extension generates the following prompt:
 The path to the file is part of the prompt.
 
 ### Prompt 2
-Now let's consider a slightly more complex two-file case.
+Now let's consider a slightly more complex two-file case where file `file2.py` is edited.
 
 * filename: `file1.py`  
 * file content: `# Print hello, world`
@@ -36,7 +36,7 @@ In this case, the extension generates the following prompt:
 # Path: file2.py
 # Compare this snippet from file1.py:
 # # Print hello, world
-# Print he"
+# Print he
 ```
 Files with similar content are also included in the prompt.
 
@@ -119,7 +119,7 @@ After sending the request, the endpoint returns the following response:
 const p = a.slice("data:".length).trim();
 ```
 
-```Json
+```Javascript
 p = {
     "id": "XXX",
     "model": "cushman-ml",
