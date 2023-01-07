@@ -1,0 +1,222 @@
+{
+    "type": "success",
+    "value": [
+        [
+            {
+                "completion": {
+                    "completionIndex": 0,
+                    "completionText": "#",
+                    "displayText": "#",
+                    "displayNeedsWsOffset": false
+                },
+                "telemetry": {
+                    "properties": {
+                        "unique_id": "XXX",
+                        "languageId": "python",
+                        "beforeCursorWhitespace": "true",
+                        "afterCursorWhitespace": "true",
+                        "promptChoices": "{\"used\":{\"BeforeCursor\":6,\"SimilarFile\":22,\"PathMarker\":8},\"unused\":{\"LanguageMarker\":10}}",
+                        "promptBackground": "{\"used\":[{\"score\":\"0.2500\",\"length\":57}],\"unused\":[]}",
+                        "gitRepoInformation": "available",
+                        "gitRepoUrl": "XXX",
+                        "gitRepoHost": "github.com",
+                        "gitRepoOwner": "XXX",
+                        "gitRepoName": "XXX",
+                        "gitRepoPath": "XXX",
+                        "engineName": "copilot-codex",
+                        "isMultiline": "false",
+                        "blockMode": "parsingandserver",
+                        "isCycling": "false",
+                        "headerRequestId": "XXX",
+                        "github_copilot_advanced_debug_showScores": "true",
+                        "github_copilot_enable_*": "true",
+                        "github_copilot_enable_yaml": "false",
+                        "github_copilot_enable_plaintext": "true",
+                        "github_copilot_enable_markdown": "true",
+                        "github_copilot_inlineSuggest_enable": "true",
+                        "copilot_build": "7705",
+                        "copilot_buildType": "prod",
+                        "copilot_trackingId": "XXX",
+                        "editor_version": "vscode/1.74.2",
+                        "editor_plugin_version": "copilot/1.65.7705",
+                        "client_machineid": "XXX",
+                        "client_sessionid": "XXX",
+                        "copilot_version": "copilot/1.65.7705",
+                        "common_extname": "copilot",
+                        "common_extversion": "1.65.7705",
+                        "VSCode.ABExp.Features": "XXX",
+                        "abexp.assignmentcontext": "XXX",
+                        "repo": "XXX",
+                        "fileType": "python",
+                        "timeBucket": "XXX",
+                        "endpoint": "completions",
+                        "uiKind": "ghostText",
+                        "temperature": "0",
+                        "n": "1",
+                        "stop": "[\"\\n\"]",
+                        "logit_bias": "null",
+                        "choiceIndex": "0",
+                        "completionId": "XXX",
+                        "created": "XXX",
+                        "serverExperiments": "",
+                        "deploymentId": "XXX"
+                    },
+                    "measurements": {
+                        "promptCharLen": 95,
+                        "promptEndPos": 21,
+                        "documentLength": 21,
+                        "delayMs": 0,
+                        "promptComputeTimeMs": 100,
+                        "contextualFilterScore": 0.5971929313392009,
+                        "timeSinceIssuedMs": 191,
+                        "numTokens": 3,
+                        "compCharLen": 1,
+                        "numLines": 1,
+                        "confidence": null,
+                        "quantile": null
+                    },
+                    "issuedTime": 1673109465097,
+                    "filtersAndExp": {
+                        "exp": {
+                            "variables": {
+                                "livesharecontinuousaa": true,
+                                "reusableLinks": true,
+                                "RemoveKernelToolbarInInteractiveWindow": true,
+                                "portForwardingServiceEnabled-development": true,
+                                "portForwardingServiceEnabled-staging": true,
+                                "portForwardingServiceEnabled-production": true,
+                                "mindaroBinariesVersion": "1.0.20210615.1",
+                                "mindaroBinariesVersion-1.0.20210702": "1.0.20210708.15",
+                                "mindaroBinariesVersion-1.0.20210723": "1.0.20210723.6",
+                                "account-aa": true,
+                                "copilotcontextualfilterexplorationtraffic": 1,
+                                "copilotaa": true,
+                                "shouldUseGrpcService": true,
+                                "gettingStarted.overrideCategory.vscode.typescript-language-features.nodejsWelcome.when": "false",
+                                "copilotfimsuffixlenthreshold": 0,
+                                "copilotsuffixmatchthreshold": 10,
+                                "CopilotSuffixPercent": 15,
+                                "copilotsuffixstartmode": "cursortrimstart"
+                            },
+                            "assignmentContext": "XXX",
+                            "features": "XXX"
+                        },
+                        "filters": {
+                            "filters": {
+                                "X-VSCode-AppVersion": "1.74.2",
+                                "X-VSCode-Build": "Visual Studio Code",
+                                "X-MSEdge-ClientId": "XXX",
+                                "X-VSCode-ExtensionName": "copilot",
+                                "X-VSCode-ExtensionVersion": "1.65.7705",
+                                "X-VSCode-Language": "en",
+                                "X-VSCode-TargetPopulation": "public",
+                                "X-Copilot-Repository": "XXX",
+                                "X-Copilot-FileType": "python",
+                                "X-Copilot-ClientTimeBucket": "XXX"
+                            }
+                        }
+                    }
+                },
+                "isMiddleOfTheLine": false,
+                "coversSuffix": false
+            }
+        ],
+        0
+    ],
+    "telemetryData": {
+        "headerRequestId": "XXX",
+        "copilot_trackingId": "XXX"
+    },
+    "telemetryBlob": {
+        "properties": {
+            "unique_id": "XXXf",
+            "languageId": "python",
+            "beforeCursorWhitespace": "true",
+            "afterCursorWhitespace": "true",
+            "promptChoices": "{\"used\":{\"BeforeCursor\":6,\"SimilarFile\":22,\"PathMarker\":8},\"unused\":{\"LanguageMarker\":10}}",
+            "promptBackground": "{\"used\":[{\"score\":\"0.2500\",\"length\":57}],\"unused\":[]}",
+            "gitRepoInformation": "available",
+            "gitRepoUrl": "XXX",
+            "gitRepoHost": "XXX",
+            "gitRepoOwner": "XXX",
+            "gitRepoName": "XXX",
+            "gitRepoPath": "XXX",
+            "engineName": "copilot-codex",
+            "isMultiline": "false",
+            "blockMode": "parsingandserver",
+            "isCycling": "false",
+            "headerRequestId": "XXX",
+            "github_copilot_advanced_debug_showScores": "true",
+            "github_copilot_enable_*": "true",
+            "github_copilot_enable_yaml": "false",
+            "github_copilot_enable_plaintext": "true",
+            "github_copilot_enable_markdown": "true",
+            "github_copilot_inlineSuggest_enable": "true",
+            "copilot_build": "7705",
+            "copilot_buildType": "prod",
+            "copilot_trackingId": "XXX",
+            "editor_version": "vscode/1.74.2",
+            "editor_plugin_version": "copilot/1.65.7705",
+            "client_machineid": "XXX",
+            "client_sessionid": "XXX",
+            "copilot_version": "copilot/1.65.7705",
+            "common_extname": "copilot",
+            "common_extversion": "1.65.7705",
+            "VSCode.ABExp.Features": "XXX",
+            "abexp.assignmentcontext": "XXX",
+            "repo": "XXX",
+            "fileType": "python",
+            "timeBucket": "XXX"
+        },
+        "measurements": {
+            "promptCharLen": 95,
+            "promptEndPos": 21,
+            "documentLength": 21,
+            "delayMs": 0,
+            "promptComputeTimeMs": 100,
+            "contextualFilterScore": 0.5971929313392009,
+            "timeSinceIssuedMs": 191
+        },
+        "issuedTime": 123,
+        "filtersAndExp": {
+            "exp": {
+                "variables": {
+                    "livesharecontinuousaa": true,
+                    "reusableLinks": true,
+                    "RemoveKernelToolbarInInteractiveWindow": true,
+                    "portForwardingServiceEnabled-development": true,
+                    "portForwardingServiceEnabled-staging": true,
+                    "portForwardingServiceEnabled-production": true,
+                    "mindaroBinariesVersion": "1.0.20210615.1",
+                    "mindaroBinariesVersion-1.0.20210702": "1.0.20210708.15",
+                    "mindaroBinariesVersion-1.0.20210723": "1.0.20210723.6",
+                    "account-aa": true,
+                    "copilotcontextualfilterexplorationtraffic": 1,
+                    "copilotaa": true,
+                    "shouldUseGrpcService": true,
+                    "gettingStarted.overrideCategory.vscode.typescript-language-features.nodejsWelcome.when": "false",
+                    "copilotfimsuffixlenthreshold": 0,
+                    "copilotsuffixmatchthreshold": 10,
+                    "CopilotSuffixPercent": 15,
+                    "copilotsuffixstartmode": "cursortrimstart"
+                },
+                "assignmentContext": "XXX",
+                "features": "XXX"
+            },
+            "filters": {
+                "filters": {
+                    "X-VSCode-AppVersion": "1.74.2",
+                    "X-VSCode-Build": "Visual Studio Code",
+                    "X-MSEdge-ClientId": "XXX",
+                    "X-VSCode-ExtensionName": "copilot",
+                    "X-VSCode-ExtensionVersion": "1.65.7705",
+                    "X-VSCode-Language": "en",
+                    "X-VSCode-TargetPopulation": "public",
+                    "X-Copilot-Repository": "XXX",
+                    "X-Copilot-FileType": "python",
+                    "X-Copilot-ClientTimeBucket": "XXX"
+                }
+            }
+        }
+    }
+}
