@@ -9,7 +9,7 @@ Under macOS the `VS Code Extensions` are located in the following directory:
 
 ## Prompts
 The Github Copilot extension generates three types of prompts.
-### Prompt 1
+### Prompt 1: Single file
 We start with the simplest case with only one file `file1.py`.
 
 * filename: `file1.py`  
@@ -22,7 +22,7 @@ In this case, the extension generates the following prompt:
 ```
 The path to the file is part of the prompt.
 
-### Prompt 2
+### Prompt 2: Multiple files
 Now let's consider a slightly more complex two-file case where file `file2.py` is edited.
 
 * filename: `file1.py`  
@@ -40,11 +40,11 @@ In this case, the extension generates the following prompt:
 ```
 Files with similar content are also included in the prompt.
 
-### Prompt 3
-Copilot supports [Fill in the Middle](https://arxiv.org/pdf/2207.14255.pdf). That means the extension sends the code before and after the cursor to the model.
+### Prompt 3: Fill in the middle
+Copilot supports [Fill in the Middle](https://arxiv.org/pdf/2207.14255.pdf). That means the extension sends the code before and after the cursor position to the model.
 * filename: `file3.py`  
 * file content: `# Test prefix\n\n# Test suffix`
-* cursor: Between  `# Test prefix\n` and `\n# Test suffix`
+* cursor position: Between  `# Test prefix\n` and `\n# Test suffix`
 
 In this case, the extension generates the following prompt:
 ``` Python
@@ -60,7 +60,7 @@ And the following suffix:
 ## Communication
 ### Language model
 
-To generate a completion, the extension sends a POST request to the endpoint `https://copilot-proxy.githubusercontent.com/v1/engines/copilot-codex/completions`. The payload is derived from the above object:
+To generate a completion, the extension sends a POST request to the endpoint `https://copilot-proxy.githubusercontent.com/v1/engines/copilot-codex/completions`:
 ``` Json
 {
     "method": "POST",
