@@ -97,7 +97,6 @@ To generate a completion, the extension sends a POST request to the endpoint `ht
 ```
 
 After sending the request, the endpoint returns the following response:
-
 ```Json
 {
     "id": "XXX",
@@ -117,6 +116,14 @@ After sending the request, the endpoint returns the following response:
 The Github Copilot extension sends [telemetry data](telemetry.json) to the endpoint `https://dc.services.visualstudio.com`:
 
 ## Deeper Analysis
+
+### Vocabulary
+The extension contains two vocabulary files
+
+| Filename | Vocabulary Size | Comment
+| --- | --- | --- |
+| `vocab_cushman001.bpe` | 50,276 | Based on the GPT-2 vocabulary |
+| `vocab_cushman002.bpe` | 100,000 | This vocabulary is new and not based on the GPT-2 vocabulary anymore |
 
 ### Min prompt chars
 The length of the prompt has to be >= 10 characters before the prompt is sent to the model.
