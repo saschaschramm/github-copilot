@@ -7,15 +7,17 @@ Under macOS the `VS Code Extensions` are located in the following directory:
 ~/.vscode/extensions
 ```
 
+>> Analysis of version 1.86.82
+
 ## Prompts
 The Github Copilot extension generates three types of prompts.
 ### Prompt 1: Single file
 We start with the simplest case with only one file `file1.py`.
 
 * filename: `file1.py`  
-* file content: `# Print hello world`
+* file content: `# Print hello, world`
 
-In this case, the extension generates the following prompt:
+If the user presses enter after In this case, the extension generates the following prompt:
 ``` Python
 # Path: file1.py
 # Print hello, world
@@ -60,58 +62,10 @@ And the following suffix:
 ## Communication
 ### Language model
 
-To generate a completion, the extension sends a POST request to the endpoint `https://copilot-proxy.githubusercontent.com/v1/engines/copilot-codex/completions`:
-``` Json
-{
-    "method": "POST",
-    "headers": {
-        "Authorization": "XXX",
-        "X-Request-Id": "XXX",
-        "Openai-Organization": "github-copilot",
-        "VScode-SessionId": "XXX",
-        "VScode-MachineId": "XXX",
-        "Editor-Version": "vscode/1.74.2",
-        "Editor-Plugin-Version": "copilot/1.65.7705",
-        "OpenAI-Intent": "copilot-ghost"
-    },
-    "json": {
-        "prompt": "# Path: file3.py\n# Test prefix",
-        "suffix": "# Test suffix",
-        "max_tokens": 500,
-        "temperature": 0,
-        "top_p": 1,
-        "n": 1,
-        "stop": [
-            "\n"
-        ],
-        "nwo": "XXX",
-        "stream": true,
-        "extra": {
-            "language": "python",
-            "next_indent": 0,
-            "trim_by_indentation": true
-        }
-    },
-    "timeout": 30000
-}
-```
+To generate a completion, the extension sends a [POST request](prompt.json) to the endpoint `https://copilot-proxy.githubusercontent.com/v1/engines/copilot-codex/completions`.
 
-After sending the request, the endpoint returns the following response:
-```Json
-{
-    "id": "XXX",
-    "model": "cushman-ml",
-    "created": 123,
-    "choices": [
-        {
-            "text": "",
-            "index": 0,
-            "finish_reason": null,
-            "logprobs": null
-        }
-    ]
-}
-```
+After sending the request, the endpoint returns the following [response](response.json).
+
 ### Telemetry
 The Github Copilot extension sends [telemetry data](telemetry.json) to the endpoint `https://dc.services.visualstudio.com`:
 
@@ -122,7 +76,7 @@ The extension contains two vocabulary files
 
 | Filename | Vocabulary Size | Comment
 | --- | --- | --- |
-| `vocab_cushman001.bpe` | 50,276 | Based on the GPT-2 vocabulary |
+| `vocab_cushman001.bpe` | 50,276 | This vocabulary is based on the GPT-2 vocabulary |
 | `vocab_cushman002.bpe` | 100,000 | This vocabulary is new and not based on the GPT-2 vocabulary anymore |
 
 ### Min prompt chars

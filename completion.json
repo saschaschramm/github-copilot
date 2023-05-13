@@ -1,0 +1,13 @@
+{
+    "id": "XXX",
+    "model": "cushman-ml",
+    "created": 123,
+    "choices": [
+        {
+            "text": "",
+            "index": 0,
+            "finish_reason": null,
+            "logprobs": null
+        }
+    ]
+}

@@ -1,0 +1,34 @@
+{
+    "method": "POST",
+    "headers": {
+        "Authorization": "XXX",
+        "X-Request-Id": "XXX",
+        "Openai-Organization": "github-copilot",
+        "VScode-SessionId": "XXX",
+        "VScode-MachineId": "XXX",
+        "Editor-Version": "vscode/1.78.2",
+        "Editor-Plugin-Version": "copilot/1.86.82",
+        "OpenAI-Intent": "copilot-ghost"
+    },
+    "json": {
+        "prompt": "# Path: file3.py\n# Test prefix",
+        "suffix": "# Test suffix",
+        "max_tokens": 500,
+        "temperature": 0,
+        "top_p": 1,
+        "n": 1,
+        "stop": [
+            "\n"
+        ],
+        "nwo": "XXX",
+        "stream": true,
+        "extra": {
+            "language": "python",
+            "next_indent": 0,
+            "trim_by_indentation": true,
+            "prompt_tokens": 11,
+            "suffix_tokens": 3
+        }
+    },
+    "timeout": 30000
+}
