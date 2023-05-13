@@ -7,7 +7,7 @@ Under macOS the `VS Code Extensions` are located in the following directory:
 ~/.vscode/extensions
 ```
 
->> Analysis of version 1.86.82
+> Analysis of version 1.86.82
 
 ## Prompts
 The Github Copilot extension generates three types of prompts.
@@ -64,7 +64,7 @@ And the following suffix:
 
 To generate a completion, the extension sends a [POST request](prompt.json) to the endpoint `https://copilot-proxy.githubusercontent.com/v1/engines/copilot-codex/completions`.
 
-After sending the request, the endpoint returns the following [response](response.json).
+After sending the request, the endpoint returns the following [response](completion.json).
 
 ### Telemetry
 The Github Copilot extension sends [telemetry data](telemetry.json) to the endpoint `https://dc.services.visualstudio.com`:
