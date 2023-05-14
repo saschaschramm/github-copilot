@@ -8,6 +8,7 @@ Under macOS the `VS Code Extensions` are located in the following directory:
 ```
 
 > Analysis of version 1.86.82
+> There are some hints for [CopilotChat](https://github.com/github-copilot/chat_waitlist_signup) in the source code
 
 ## Prompts
 The Github Copilot extension generates three types of prompts.
@@ -99,127 +100,10 @@ const m = {
 }
 ```
 
-### Extract prompt
-The input of the function `extractPrompt` is the following object:
-``` Javascript
-{
-    "uri": {
-        "$mid": 1,
-        "fsPath": "/Users/XXX/file2.py",
-        "external": "file:///Users/XXX/file2.py",
-        "path": "/Users/XXX/file2.py",
-        "scheme": "file"
-    },
-    "fileName": "/Users/XXX/file2.py",
-    "isUntitled": false,
-    "languageId": "python",
-    "version": 7,
-    "isClosed": false,
-    "isDirty": true,
-    "eol": 1,
-    "lineCount": 2
-}
-```
+### Neighbor Files
+The extension remembers the files that have been accessed before. The function `getNeighborFiles` calls the function `truncateDocs`. Input of the function `truncateDocs` are the [files sorted by access time](truncated-input.json). 
 
-The extensions remembers the files that have been accessed before. The files are sorted by access time:
-``` Javascript
-o = (0, i.sortByAccessTimes)(e.get(a.TextDocumentManager).textDocuments);
-```
-
-``` Javascript
-o = [
-    {
-        "uri": {
-            "$mid": 1,
-            "fsPath": "/Users/XXX/file2.py",
-            "external": "file:///Users/XXX/file2.py",
-            "path": "/Users/XXX/file2.py",
-            "scheme": "file"
-        },
-        "fileName": "/Users/XXX/file2.py",
-        "isUntitled": false,
-        "languageId": "python",
-        "version": 6,
-        "isClosed": false,
-        "isDirty": true,
-        "eol": 1,
-        "lineCount": 1
-    },
-    {
-        "uri": {
-            "$mid": 1,
-            "fsPath": "/Users/XXX/file1.py",
-            "external": "file:///Users/XXX/file1.py",
-            "path": "/Users/XXX/file1.py",
-            "scheme": "file"
-        },
-        "fileName": "/Users/XXX/file1.py",
-        "isUntitled": false,
-        "languageId": "python",
-        "version": 1,
-        "isClosed": false,
-        "isDirty": false,
-        "eol": 1,
-        "lineCount": 1
-    }
-```
-
-If there are more than 20 files or when the content of all files has a length > 200,000 then the rest of the files are ignored.
-``` Javascript
-if (r.length + 1 > 20 || s + i.getText().length > 2e5)
-    break;
-```
-
-The above object is reduced to the following properties:
-``` Javascript
-[
-    {
-        "uri": "file:///Users/XXX/copilot/file1.py",
-        "relativePath": "file1.py",
-        "languageId": "python",
-        "source": "# Print hello, world"
-    }
-]
-```
-
-The output of the function `extractPrompt` is
-``` Javascript
-{
-    "type": "prompt",
-    "prompt": {
-        "prefix": "# Path: file2.py\n# Compare this snippet from file1.py:\n# # Print hello, world\n# Print he",
-        "suffix": "",
-        "isFimEnabled": false,
-        "promptElementRanges": [
-            {
-                "kind": "PathMarker",
-                "start": 0,
-                "end": 17
-            },
-            {
-                "kind": "SimilarFile",
-                "start": 17,
-                "end": 78
-            },
-            {
-                "kind": "BeforeCursor",
-                "start": 78,
-                "end": 88
-            }
-        ]
-    },
-    "trailingWs": "",
-    "promptChoices": {
-        "used": {},
-        "unused": {}
-    },
-    "computeTimeMs": 6,
-    "promptBackground": {
-        "used": {},
-        "unused": {}
-    }
-}
-```
+When the combined size of all files exceeds 200,000, any additional files will be disregarded. The function `truncateDocs` returns a [truncated list of files](truncated-output.json).
 
 ## Copilot Performance
 We have evaluated the copilot model `cushman-ml` with the [HumanEval](https://github.com/openai/human-eval) dataset. Out of 164 programming problems, the model can solve `56.10%`.

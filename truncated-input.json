@@ -1,0 +1,20 @@
+[
+    {
+        "uri": {
+            "$mid": 1,
+            "fsPath": "/Users/XXX/file1.py.git",
+            "external": "XXX",
+            "path": "/Users/XXX/file1.py.git",
+            "scheme": "git",
+            "query": "{\"path\":\"/Users/XXX/file1.py\",\"ref\":\"\"}"
+        },
+        "fileName": "/Users/XXX/file1.py.git",
+        "isUntitled": false,
+        "languageId": "plaintext",
+        "version": 1,
+        "isClosed": false,
+        "isDirty": false,
+        "eol": 1,
+        "lineCount": 1
+    }
+]

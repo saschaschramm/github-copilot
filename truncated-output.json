@@ -1,0 +1,8 @@
+[
+    {
+        "uri": "file:///Users/XXX/copilot/file1.py",
+        "relativePath": "file1.py",
+        "languageId": "python",
+        "source": "# Print hello, world"
+    }
+]
