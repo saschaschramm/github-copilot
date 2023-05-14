@@ -127,6 +127,7 @@ Some examples of what Copilot Chat will be able to do:
 * Answer coding questions
 
 ### Prompt
+
 ```
 You are an AI programming assistant."
 When asked for you name, you must respond with "GitHub Copilot".
