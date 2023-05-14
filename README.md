@@ -1,5 +1,7 @@
 # Copilot 
 
+## Github Copilot
+
 This is an analysis of the [Github Copilot extension](https://github.com/features/copilot) for VS Code.
 
 Under macOS the `VS Code Extensions` are located in the following directory:
@@ -9,11 +11,9 @@ Under macOS the `VS Code Extensions` are located in the following directory:
 
 > Analysis of version 1.86.82
 
-> There are some hints for [CopilotChat](https://github.com/github-copilot/chat_waitlist_signup) in the source code
-
-## Prompts
+### Prompts
 The Github Copilot extension generates three types of prompts.
-### Prompt 1: Single file
+#### Prompt 1: Single file
 We start with the simplest case with only one file `file1.py`.
 
 * filename: `file1.py`  
@@ -26,7 +26,7 @@ If the user presses enter after In this case, the extension generates the follow
 ```
 The path to the file is part of the prompt.
 
-### Prompt 2: Multiple files
+#### Prompt 2: Multiple files
 Now let's consider a slightly more complex two-file case where file `file2.py` is edited.
 
 * filename: `file1.py`  
@@ -44,7 +44,7 @@ In this case, the extension generates the following prompt:
 ```
 Files with similar content are also included in the prompt.
 
-### Prompt 3: Fill in the middle
+#### Prompt 3: Fill in the middle
 Copilot supports [Fill in the Middle](https://arxiv.org/pdf/2207.14255.pdf). That means the extension sends the code before and after the cursor position to the model.
 * filename: `file3.py`  
 * file content: `# Test prefix\n\n# Test suffix`
@@ -61,18 +61,18 @@ And the following suffix:
 # Test suffix
 ```
 
-## Communication
-### Language model
+### Communication
+#### Language model
 To generate a completion, the extension sends a [POST request](prompt.json) to the endpoint `https://copilot-proxy.githubusercontent.com/v1/engines/copilot-codex/completions`.
 
 After sending the request, the endpoint returns the following [response](completion.json).
 
-### Telemetry
+#### Telemetry
 The Github Copilot extension sends [telemetry data](telemetry.json) to the endpoint `https://dc.services.visualstudio.com`:
 
-## Deeper Analysis
+### Deeper Analysis
 
-### Vocabulary
+#### Vocabulary
 The extension contains two vocabulary files
 
 | Filename | Vocabulary Size | Comment
@@ -80,7 +80,7 @@ The extension contains two vocabulary files
 | `vocab_cushman001.bpe` | 50,276 | This vocabulary is based on the GPT-2 vocabulary |
 | `vocab_cushman002.bpe` | 100,000 | This vocabulary is new and not based on the GPT-2 vocabulary anymore |
 
-### Min prompt chars
+#### Min prompt chars
 The length of the prompt has to be >= 10 characters before the prompt is sent to the model.
 
 ``` Javascript
@@ -88,7 +88,7 @@ if ((_ > 0 ? n.length : d) < t.MIN_PROMPT_CHARS)
     return t._contextTooShort;
 ```
 
-### File information
+#### File information
 The following information is collected about the file being edited:
 ``` Javascript
 const m = {
@@ -100,12 +100,12 @@ const m = {
 }
 ```
 
-### Neighbor Files
+#### Neighbor Files
 The extension remembers the files that have been accessed before. The function `getNeighborFiles` calls the function `truncateDocs`. Input of the function `truncateDocs` are the [files sorted by access time](truncated-input.json). 
 
 When the combined size of all files exceeds 200,000, any additional files will be disregarded. The function `truncateDocs` returns a [truncated list of files](truncated-output.json).
 
-## Copilot Performance
+### Copilot Performance
 We have evaluated the copilot model `cushman-ml` with the [HumanEval](https://github.com/openai/human-eval) dataset. Out of 164 programming problems, the model can solve `56.10%`.
 
 | Model name | Pass@1 | Date | Comment
@@ -116,3 +116,12 @@ We have evaluated the copilot model `cushman-ml` with the [HumanEval](https://gi
 
 
 Completions of the evaluation run: [2022-10-23-samples-cushman-ml.jsonl](2022-10-23-samples-cushman-ml.jsonl)
+
+## GitHub Copilot Chat
+This is an analysis of the [GitHub Copilot Chat extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) for VS Code.
+
+Some examples of what Copilot Chat will be able to do:
+* Generate unit test cases
+* Explain code
+* Propose code fixes
+* Answer coding questions
