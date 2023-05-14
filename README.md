@@ -7,7 +7,7 @@ Under macOS the `VS Code Extensions` are located in the following directory:
 ~/.vscode/extensions
 ```
 
-> Analysis of version 1.86.82
+> Analysis of version 1.86.82  
 > There are some hints for [CopilotChat](https://github.com/github-copilot/chat_waitlist_signup) in the source code
 
 ## Prompts
@@ -62,7 +62,6 @@ And the following suffix:
 
 ## Communication
 ### Language model
-
 To generate a completion, the extension sends a [POST request](prompt.json) to the endpoint `https://copilot-proxy.githubusercontent.com/v1/engines/copilot-codex/completions`.
 
 After sending the request, the endpoint returns the following [response](completion.json).
