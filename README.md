@@ -7,7 +7,8 @@ Under macOS the `VS Code Extensions` are located in the following directory:
 ~/.vscode/extensions
 ```
 
-> Analysis of version 1.86.82  
+> Analysis of version 1.86.82
+
 > There are some hints for [CopilotChat](https://github.com/github-copilot/chat_waitlist_signup) in the source code
 
 ## Prompts
