@@ -26,11 +26,13 @@ Prompt asks the model to generate a follow-up question to the previous question 
 Instead of typing a question in the inline chat, you can also use the following slash commands:
 * `/vscode` - Questions about VS Code
 * `/tests` - Generate unit tests for the selected code.
-* `/simplify` - Simplify the selected code.
 * `/fix` - Propose a fix for the problems in the selected code.
 * `/explain` - Explain step-by-step how the selected code works.
 * `/ext` - Ask about the VS Code extension development.
 * `/help` - General help about GitHub Copilot
+
+
+
 
 
 
