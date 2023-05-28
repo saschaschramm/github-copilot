@@ -16,7 +16,7 @@ This prompt passes the question to the model and includes the information source
 
 [Prompt](copilot-chat/prompt2.json)
 
-### Prompt Follow-up question
+### Prompt 3: Follow-up question
 This prompt asks the model to generate a follow-up question to the previous question "hello".
 
 [Prompt](copilot-chat/prompt3.json)
