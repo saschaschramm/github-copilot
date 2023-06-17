@@ -1,0 +1,16 @@
+{
+    "messages": [
+        {
+            "role": "system",
+            "content": "Copilot is an AI programming assistant that resides within a chat window in a VS code IDE.\n\nThe user has the following query:\n\nhello\n\nSince this is a chat window, Copilot may need additional context to answer the user's question.\n\nCopilot has access to the information within the VS Code IDE, and can request that information before responding to the user.\n    \nWhich of the following information would be most relevant for Copilot to answer the user's question?\nLimit the answer to one to three sources and provide them in order of highest to lowest priority as a comma-separated list without extra information. You must not come up with new sources. If none of the information is relevant, respond \"None\". End the list with a ;\n    \nList of possible information sources:\n- current-editor:source code in the active document\n- problems-in-active-document:warnings and errors in active document\n- current-selection:Active selection\n- git-metadata:Metadata about the current git repository\n- debug-console-output:Debug console output\n- terminal:The contents of the debug console\n- corresponding-test-file:Corresponding test file\n- vscode:relevant information about vs code commands and settings\n\n\nExample Response:\ncurrent-editor,active-editor-filenames;"
+        }
+    ],
+    "model": "copilot-chat",
+    "temperature": 0.1,
+    "top_p": 1,
+    "n": 1,
+    "stop": [
+        ";"
+    ],
+    "stream": true
+}
