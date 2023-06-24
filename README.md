@@ -49,13 +49,13 @@ Copilot supports [Fill in the Middle](https://arxiv.org/pdf/2207.14255.pdf). Tha
 * filename: `file3.py`  
 * file content: `# Test prefix\n# Test suffix`
 
-If the user presses enter after `# Test prefix`, the extension generates the following prompt:
+If the user presses enter after `# Test prefix`, the extension generates the prefix
 ``` Python
 # Path: file3.py
 # Test prefix
 ```
 
-And the following suffix:
+and the suffix
 ``` Python
 # Test suffix
 ```
