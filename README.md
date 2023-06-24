@@ -7,7 +7,7 @@ Under macOS the `VS Code Extensions` are located in the following directory:
 ~/.vscode/extensions
 ```
 
-> Analysis of version 1.86.82
+> Analysis of version 1.92.177
 
 For an analysis of Copilot Chat see [README_COPILOT_CHAT.md](README_COPILOT_CHAT.md).
 
@@ -19,7 +19,7 @@ We start with the simplest case with only one file `file1.py`.
 * filename: `file1.py`  
 * file content: `# Print hello, world`
 
-If the user presses enter after In this case, the extension generates the following prompt:
+If the user presses enter after `# Print hello, world`, the extension generates the following prompt:
 ``` Python
 # Path: file1.py
 # Print hello, world
@@ -47,8 +47,9 @@ Files with similar content are also included in the prompt.
 ### Prompt 3: Fill in the middle
 Copilot supports [Fill in the Middle](https://arxiv.org/pdf/2207.14255.pdf). That means the extension sends the code before and after the cursor position to the model.
 * filename: `file3.py`  
-* file content: `# Test prefix\n\n# Test suffix`
-* cursor position: Between  `# Test prefix\n` and `\n# Test suffix`
+* file content: `# Test prefix\n# Test suffix`
+
+If the user presses enter after `# Test prefix`, the extension generates the following prompt:
 
 In this case, the extension generates the following prompt:
 ``` Python
@@ -63,12 +64,12 @@ And the following suffix:
 
 ## Communication
 ### Language model
-To generate a completion, the extension sends a [POST request](prompt.json) to the endpoint `https://copilot-proxy.githubusercontent.com/v1/engines/copilot-codex/completions`.
+To generate a completion, the extension sends a [POST request](copilot/1.92.177/prompt.json) to the endpoint `https://copilot-proxy.githubusercontent.com/v1/engines/copilot-codex/completions`.
 
-After sending the request, the endpoint returns the following [response](completion.json).
+After sending the request, the endpoint returns the following [response](copilot/1.92.177/completion.json).
 
 ### Telemetry
-The Github Copilot extension sends [telemetry data](telemetry.json) to the endpoint `https://dc.services.visualstudio.com`:
+The Github Copilot extension sends [telemetry data](copilot/1.92.177/telemetry.json) to the endpoint `https://dc.services.visualstudio.com`:
 
 ## Deeper Analysis
 
@@ -101,9 +102,9 @@ const m = {
 ```
 
 ### Neighbor Files
-The extension remembers the files that have been accessed before. The function `getNeighborFiles` calls the function `truncateDocs`. Input of the function `truncateDocs` are the [files sorted by access time](truncated-input.json). 
+The extension remembers the files that have been accessed before. The function `getNeighborFiles` calls the function `truncateDocs`. Input of the function `truncateDocs` are the [files sorted by access time](copilot/1.92.177/truncated-input.json). 
 
-When the combined size of all files exceeds 200,000, any additional files will be disregarded. The function `truncateDocs` returns a [truncated list of files](truncated-output.json).
+When the combined size of all files exceeds 200,000, any additional files will be disregarded. The function `truncateDocs` returns a [truncated list of files](copilot/1.92.177/truncated-output.json).
 
 ## Copilot Performance
 We have evaluated the copilot model `cushman-ml` with the [HumanEval](https://github.com/openai/human-eval) dataset. Out of 164 programming problems, the model can solve `56.10%`.

@@ -4,13 +4,12 @@
             "$mid": 1,
             "fsPath": "/Users/XXX/file1.py.git",
             "external": "XXX",
-            "path": "/Users/XXX/file1.py.git",
-            "scheme": "git",
-            "query": "{\"path\":\"/Users/XXX/file1.py\",\"ref\":\"\"}"
+            "path": "/Users/XXX/copilot/file1.py",
+            "scheme": "file"
         },
-        "fileName": "/Users/XXX/file1.py.git",
+        "fileName": "/Users/XXX/copilot/file1.py",
         "isUntitled": false,
-        "languageId": "plaintext",
+        "languageId": "python",
         "version": 1,
         "isClosed": false,
         "isDirty": false,
