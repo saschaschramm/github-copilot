@@ -2,12 +2,12 @@
     {
         "uri": {
             "$mid": 1,
-            "fsPath": "/Users/XXX/file1.py.git",
-            "external": "XXX",
+            "fsPath": "/Users/XXX/copilot/file1.py",
+            "external": "file:///Users/XXX/copilot/file1.py",
             "path": "/Users/XXX/copilot/file1.py",
             "scheme": "file"
         },
-        "fileName": "/Users/XXX/copilot/file1.py",
+        "fileName": "/Users/XXX/copilot//file1.py",
         "isUntitled": false,
         "languageId": "python",
         "version": 1,
